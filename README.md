@@ -1,4 +1,6 @@
-# React + Vite
+# MakingWebsite-ecommerce-React
+
+Developing an e-commerce site with React
 
 Bu proje [Vite](https://vitejs.dev/) kullanılarak oluşturulmuş bir React uygulamasıdır.
 
