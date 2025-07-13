@@ -1,13 +1,12 @@
 import React from 'react'
-import Container from '@mui/material/Container';
-
+import '../css/Layout.css'
 
 function PageContainer({ children }) {
   return (
-    <div>
-        <Container>  
+    <div className="page-container">
+      <div className="page-content">
         {children}
-        </Container>
+      </div>
     </div>
   )
 }
