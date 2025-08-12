@@ -2,7 +2,6 @@ import React from 'react'
 import '../css/Product.css'
 
 function Product({ product }) {
-  console.log(product);
   return (
     <div className="product-card">
       <img

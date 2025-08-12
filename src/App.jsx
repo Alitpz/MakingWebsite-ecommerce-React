@@ -1,16 +1,20 @@
 import './App.css'
 import Header from './components/Header'
-import PageContainer from './container/pageContainer'
-import RouterConfig from './config/RouterConfig'
+import Home from './pages/Home'
 import './css/Layout.css'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="app-container">
-      <PageContainer>
-        <Header />
-        <RouterConfig />
-      </PageContainer>
+      <div className="page-container">
+        <div className="page-content">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   )
 }

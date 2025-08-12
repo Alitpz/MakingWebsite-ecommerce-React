@@ -1,32 +1,32 @@
-/* Tema değişkenleri - En yüksek öncelik */
+/* Tema değişkenleri */
 :root {
-    --background-color: #ffffff !important;
-    --text-color: #333333 !important;
-    --card-background: #ffffff !important;
-    --border-color: #dddddd !important;
-    --shadow-color: rgba(0, 0, 0, 0.1) !important;
-    --button-bg: #3498db !important;
-    --button-text: #ffffff !important;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --card-background: #ffffff;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-bg: #3498db;
+    --button-text: #ffffff;
 }
 
 [data-theme="light"] {
-    --background-color: #ffffff !important;
-    --text-color: #333333 !important;
-    --card-background: #ffffff !important;
-    --border-color: #dddddd !important;
-    --shadow-color: rgba(0, 0, 0, 0.1) !important;
-    --button-bg: #3498db !important;
-    --button-text: #ffffff !important;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --card-background: #ffffff;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-bg: #3498db;
+    --button-text: #ffffff;
 }
 
 [data-theme="dark"] {
-    --background-color: #1a1a1a !important;
-    --text-color: #ffffff !important;
-    --card-background: #2d2d2d !important;
-    --border-color: #444444 !important;
-    --shadow-color: rgba(0, 0, 0, 0.3) !important;
-    --button-bg: #2980b9 !important;
-    --button-text: #ffffff !important;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-background: #2d2d2d;
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --button-bg: #2980b9;
+    --button-text: #ffffff;
 }
 
 /* Temel stiller */
@@ -37,22 +37,22 @@
 }
 
 html {
-    background-color: var(--background-color) !important;
-    color: var(--text-color) !important;
-    transition: all 0.3s ease !important;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
 body {
-    background-color: var(--background-color) !important;
-    color: var(--text-color) !important;
-    transition: all 0.3s ease !important;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
     margin: 0;
     padding: 0;
 }
 
 #root {
-    min-height: 100vh !important;
-    background-color: var(--background-color) !important;
-    color: var(--text-color) !important;
-    transition: all 0.3s ease !important;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }

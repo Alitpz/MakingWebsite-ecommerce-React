@@ -7,7 +7,6 @@ import '../css/ProductList.css'
 function ProductList() {
   const dispatch = useDispatch();
   const { products, loading } = useSelector((store) => store.product);
-  console.log(products);
 
   useEffect(() => {
     dispatch(getAllProducts());

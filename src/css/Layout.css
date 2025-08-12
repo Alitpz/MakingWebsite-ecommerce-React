@@ -1,13 +1,7 @@
-/* App Container */
-.app-container {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    transition: all 0.3s ease;
-}
-
-/* Page Container */
-.page-container {
+/* Layout Components */
+.app-container,
+.page-container,
+.home-container {
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
@@ -18,14 +12,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-/* Home Page */
-.home-container {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    transition: all 0.3s ease;
 }
 
 /* Responsive Design */

@@ -41,7 +41,7 @@ function Header() {
   return (
     <div className="header-container">
       <div className='flex-row'>
-        <img className='logo' src="src/images/Logo.png" alt="Logo" />
+        <img className='logo' src="/Logo.png" alt="Logo" />
         <p className='logo-text'>E-Ticaret Sitesi</p>
       </div>
 
