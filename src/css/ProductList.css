@@ -8,21 +8,7 @@
     min-height: 100vh;
 }
 
-/* Loading Container */
-.loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    color: var(--text-color);
-    font-size: 16px;
-}
-
-.loading-text {
-    color: var(--text-color);
-    font-size: 16px;
-    font-weight: 500;
-}
+/* Loading artık Loading.css'te tanımlı */
 
 /* Responsive Design */
 @media (max-width: 768px) {

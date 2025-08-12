@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../redux/slices/productSlice'
 import Product from './Product'
+import Loading from './Loading'
 import '../css/ProductList.css'
 
 function ProductList() {
@@ -14,9 +15,11 @@ function ProductList() {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <p className="loading-text">Ürünler yükleniyor...</p>
-      </div>
+      <Loading
+        message="Ürünler yükleniyor..."
+        size="medium"
+        fullScreen={false}
+      />
     );
   }
 
