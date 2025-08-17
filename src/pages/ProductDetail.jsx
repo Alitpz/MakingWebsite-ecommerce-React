@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllProducts } from '../redux/slices/productSlice'
+import { addToCart } from '../redux/slices/cartSlice'
 import Loading from '../components/Loading'
 import '../css/ProductDetail.css'
 
@@ -31,6 +32,10 @@ function ProductDetail() {
 
     const handleBackToHome = () => {
         navigate('/')
+    }
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product))
     }
 
     if (loading) {
@@ -86,7 +91,7 @@ function ProductDetail() {
                             <span className="product-detail-price">
                                 ${product.price}
                             </span>
-                            <button className="add-to-cart-btn-large">
+                            <button className="add-to-cart-btn-large" onClick={handleAddToCart}>
                                 Sepete Ekle
                             </button>
                         </div>

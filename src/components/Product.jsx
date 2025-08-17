@@ -1,12 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/slices/cartSlice'
 import '../css/Product.css'
 
 function Product({ product }) {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleViewProduct = () => {
     navigate(`/product/${product.id}`)
+  }
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product))
   }
 
   return (
@@ -30,7 +37,7 @@ function Product({ product }) {
           <button className="view-product-btn" onClick={handleViewProduct}>
             İncele
           </button>
-          <button className="add-to-cart-btn">
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>
             Sepete Ekle
           </button>
         </div>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '../css/Header.css';
 import { FaShoppingBasket } from "react-icons/fa";
 import { CiLight } from "react-icons/ci";
@@ -9,6 +11,13 @@ function Header() {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme === 'dark' ? true : false;
   });
+
+  const { totalQuantity } = useSelector((store) => store.cart);
+  const navigate = useNavigate();
+
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
 
   // Sayfa yüklendiğinde tema attribute'unu set et
   useEffect(() => {
@@ -57,7 +66,12 @@ function Header() {
           ) : (
             <FaMoon className='icons' onClick={changeTheme} />
           )}
-          <FaShoppingBasket className='icons' />
+          <div className="cart-icon-container" onClick={handleCartClick}>
+            <FaShoppingBasket className='icons' />
+            {totalQuantity > 0 && (
+              <span className="cart-badge">{totalQuantity}</span>
+            )}
+          </div>
         </div>
       </div>
     </div>
