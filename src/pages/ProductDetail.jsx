@@ -6,7 +6,7 @@ import { addToCart } from '../redux/slices/cartSlice'
 import Loading from '../components/Loading'
 import '../css/ProductDetail.css'
 
-function ProductDetail() {
+function ProductDetail({ showNotification }) {
     const { id } = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -36,6 +36,7 @@ function ProductDetail() {
 
     const handleAddToCart = () => {
         dispatch(addToCart(product))
+        showNotification(`${product.title} sepete eklendi!`, 'success')
     }
 
     if (loading) {

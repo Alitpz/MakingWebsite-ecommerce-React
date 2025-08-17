@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/slices/cartSlice'
 import '../css/Product.css'
 
-function Product({ product }) {
+function Product({ product, showNotification }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -14,6 +14,7 @@ function Product({ product }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product))
+    showNotification(`${product.title} sepete eklendi!`, 'success')
   }
 
   return (

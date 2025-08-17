@@ -1,10 +1,10 @@
 import React from 'react'
 import ProductList from '../components/ProductList'
 
-function Home() {
+function Home({ showNotification }) {
   return (
     <div className="home-container">
-      <ProductList />
+      <ProductList showNotification={showNotification} />
     </div>
   )
 }

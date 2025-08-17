@@ -5,11 +5,17 @@ import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import Loading from './components/Loading'
+import Notification from './components/Notification'
 import './css/Layout.css'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [isInitialLoading, setIsInitialLoading] = useState(true)
+  const [notification, setNotification] = useState({
+    isVisible: false,
+    message: '',
+    type: 'success'
+  })
 
   useEffect(() => {
     // Sayfa ilk yüklenirken kısa bir loading göster
@@ -19,6 +25,21 @@ function App() {
 
     return () => clearTimeout(timer)
   }, [])
+
+  const showNotification = (message, type = 'success') => {
+    setNotification({
+      isVisible: true,
+      message,
+      type
+    })
+  }
+
+  const hideNotification = () => {
+    setNotification(prev => ({
+      ...prev,
+      isVisible: false
+    }))
+  }
 
   if (isInitialLoading) {
     return (
@@ -36,12 +57,20 @@ function App() {
         <div className="page-content">
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/" element={<Home showNotification={showNotification} />} />
+            <Route path="/product/:id" element={<ProductDetail showNotification={showNotification} />} />
+            <Route path="/cart" element={<Cart showNotification={showNotification} />} />
           </Routes>
         </div>
       </div>
+
+      <Notification
+        isVisible={notification.isVisible}
+        message={notification.message}
+        type={notification.type}
+        onClose={hideNotification}
+        duration={3000}
+      />
     </div>
   )
 }

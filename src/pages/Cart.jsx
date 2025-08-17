@@ -4,17 +4,19 @@ import { removeFromCart, removeItemCompletely, updateQuantity, clearCart } from 
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa'
 import '../css/Cart.css'
 
-function Cart() {
-    const dispatch = useDispatch()
-    const { items, totalQuantity, totalAmount } = useSelector((store) => store.cart)
+function Cart({ showNotification }) {
+  const dispatch = useDispatch()
+  const { items, totalQuantity, totalAmount } = useSelector((store) => store.cart)
 
     const handleRemoveFromCart = (id) => {
         dispatch(removeFromCart(id))
     }
 
-    const handleRemoveItemCompletely = (id) => {
-        dispatch(removeItemCompletely(id))
-    }
+      const handleRemoveItemCompletely = (id) => {
+    const item = items.find(item => item.id === id)
+    dispatch(removeItemCompletely(id))
+    showNotification(`${item.title} sepetten kaldırıldı`, 'info')
+  }
 
     const handleUpdateQuantity = (id, newQuantity) => {
         if (newQuantity > 0) {
@@ -22,9 +24,10 @@ function Cart() {
         }
     }
 
-    const handleClearCart = () => {
-        dispatch(clearCart())
-    }
+      const handleClearCart = () => {
+    dispatch(clearCart())
+    showNotification('Sepet temizlendi', 'info')
+  }
 
     if (totalQuantity === 0) {
         return (
