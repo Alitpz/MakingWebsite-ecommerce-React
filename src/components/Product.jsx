@@ -1,7 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../css/Product.css'
 
 function Product({ product }) {
+  const navigate = useNavigate()
+
+  const handleViewProduct = () => {
+    navigate(`/product/${product.id}`)
+  }
+
   return (
     <div className="product-card">
       <img
@@ -19,9 +26,14 @@ function Product({ product }) {
         <span className="product-price">
           ${product.price}
         </span>
-        <button className="add-to-cart-btn">
-          Sepete Ekle
-        </button>
+        <div className="product-buttons">
+          <button className="view-product-btn" onClick={handleViewProduct}>
+            İncele
+          </button>
+          <button className="add-to-cart-btn">
+            Sepete Ekle
+          </button>
+        </div>
       </div>
     </div>
   )
