@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 import Loading from './components/Loading'
 import Notification from './components/Notification'
 import './css/Layout.css'
@@ -60,6 +61,7 @@ function App() {
             <Route path="/" element={<Home showNotification={showNotification} />} />
             <Route path="/product/:id" element={<ProductDetail showNotification={showNotification} />} />
             <Route path="/cart" element={<Cart showNotification={showNotification} />} />
+            <Route path="/checkout" element={<Checkout showNotification={showNotification} />} />
           </Routes>
         </div>
       </div>

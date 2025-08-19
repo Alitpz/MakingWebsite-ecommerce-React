@@ -7,6 +7,15 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-bg: #3498db;
     --button-text: #ffffff;
+
+    /* Checkout sayfası için ek değişkenler */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-hover: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --accent-color: #3b82f6;
 }
 
 [data-theme="light"] {
@@ -17,6 +26,15 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-bg: #3498db;
     --button-text: #ffffff;
+
+    /* Checkout sayfası için ek değişkenler */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-hover: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --accent-color: #3b82f6;
 }
 
 [data-theme="dark"] {
@@ -27,6 +45,15 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --button-bg: #2980b9;
     --button-text: #ffffff;
+
+    /* Checkout sayfası için ek değişkenler */
+    --bg-primary: #2d2d2d;
+    --bg-secondary: #1a1a1a;
+    --bg-hover: #3d3d3d;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --accent-color: #60a5fa;
 }
 
 /* Temel stiller */

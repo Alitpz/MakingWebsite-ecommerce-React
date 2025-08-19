@@ -13,7 +13,7 @@ export const cartSlice = createSlice({
         addToCart: (state, action) => {
             const newItem = action.payload
             const existingItem = state.items.find(item => item.id === newItem.id)
-            
+
             if (existingItem) {
                 // Eğer ürün zaten sepette varsa, miktarını artır
                 existingItem.quantity += 1
@@ -26,16 +26,16 @@ export const cartSlice = createSlice({
                     totalPrice: newItem.price
                 })
             }
-            
+
             // Toplam miktar ve tutarı güncelle
             state.totalQuantity += 1
             state.totalAmount = state.items.reduce((total, item) => total + item.totalPrice, 0)
         },
-        
+
         removeFromCart: (state, action) => {
             const id = action.payload
             const existingItem = state.items.find(item => item.id === id)
-            
+
             if (existingItem) {
                 if (existingItem.quantity === 1) {
                     // Son ürün ise tamamen kaldır
@@ -45,17 +45,17 @@ export const cartSlice = createSlice({
                     existingItem.quantity -= 1
                     existingItem.totalPrice = existingItem.price * existingItem.quantity
                 }
-                
+
                 // Toplam miktar ve tutarı güncelle
                 state.totalQuantity -= 1
                 state.totalAmount = state.items.reduce((total, item) => total + item.totalPrice, 0)
             }
         },
-        
+
         removeItemCompletely: (state, action) => {
             const id = action.payload
             const existingItem = state.items.find(item => item.id === id)
-            
+
             if (existingItem) {
                 // Ürünü tamamen kaldır
                 state.totalQuantity -= existingItem.quantity
@@ -63,22 +63,22 @@ export const cartSlice = createSlice({
                 state.totalAmount = state.items.reduce((total, item) => total + item.totalPrice, 0)
             }
         },
-        
+
         clearCart: (state) => {
             state.items = []
             state.totalQuantity = 0
             state.totalAmount = 0
         },
-        
+
         updateQuantity: (state, action) => {
             const { id, quantity } = action.payload
             const existingItem = state.items.find(item => item.id === id)
-            
+
             if (existingItem && quantity > 0) {
                 const oldQuantity = existingItem.quantity
                 existingItem.quantity = quantity
                 existingItem.totalPrice = existingItem.price * quantity
-                
+
                 // Toplam miktar ve tutarı güncelle
                 state.totalQuantity = state.totalQuantity - oldQuantity + quantity
                 state.totalAmount = state.items.reduce((total, item) => total + item.totalPrice, 0)
@@ -87,12 +87,12 @@ export const cartSlice = createSlice({
     },
 })
 
-export const { 
-    addToCart, 
-    removeFromCart, 
-    removeItemCompletely, 
-    clearCart, 
-    updateQuantity 
+export const {
+    addToCart,
+    removeFromCart,
+    removeItemCompletely,
+    clearCart,
+    updateQuantity
 } = cartSlice.actions
 
 export default cartSlice.reducer

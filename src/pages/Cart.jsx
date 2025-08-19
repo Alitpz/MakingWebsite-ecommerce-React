@@ -1,22 +1,24 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { removeFromCart, removeItemCompletely, updateQuantity, clearCart } from '../redux/slices/cartSlice'
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa'
 import '../css/Cart.css'
 
 function Cart({ showNotification }) {
-  const dispatch = useDispatch()
-  const { items, totalQuantity, totalAmount } = useSelector((store) => store.cart)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { items, totalQuantity, totalAmount } = useSelector((store) => store.cart)
 
     const handleRemoveFromCart = (id) => {
         dispatch(removeFromCart(id))
     }
 
-      const handleRemoveItemCompletely = (id) => {
-    const item = items.find(item => item.id === id)
-    dispatch(removeItemCompletely(id))
-    showNotification(`${item.title} sepetten kaldırıldı`, 'info')
-  }
+    const handleRemoveItemCompletely = (id) => {
+        const item = items.find(item => item.id === id)
+        dispatch(removeItemCompletely(id))
+        showNotification(`${item.title} sepetten kaldırıldı`, 'info')
+    }
 
     const handleUpdateQuantity = (id, newQuantity) => {
         if (newQuantity > 0) {
@@ -24,10 +26,10 @@ function Cart({ showNotification }) {
         }
     }
 
-      const handleClearCart = () => {
-    dispatch(clearCart())
-    showNotification('Sepet temizlendi', 'info')
-  }
+    const handleClearCart = () => {
+        dispatch(clearCart())
+        showNotification('Sepet temizlendi', 'info')
+    }
 
     if (totalQuantity === 0) {
         return (
@@ -113,7 +115,10 @@ function Cart({ showNotification }) {
                         <span>Toplam Tutar:</span>
                         <span>${totalAmount.toFixed(2)}</span>
                     </div>
-                    <button className="checkout-btn">
+                    <button
+                        className="checkout-btn"
+                        onClick={() => navigate('/checkout')}
+                    >
                         Ödemeye Geç
                     </button>
                 </div>
